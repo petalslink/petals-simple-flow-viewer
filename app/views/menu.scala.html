@@ -1,0 +1,16 @@
+@(active: Int)
+
+<!-- Menu -->
+<div id="menu-wrapper">
+	<div id="logo">
+		<a href="@routes.Application.index"><img src="@routes.Assets.at("images/logo.png")" width="130" height="105" alt="logo" /></a>
+	</div>
+
+	<ul id="menu-items">
+		<li class="@if( active == 1 ) {selected} else {not-selected}"><a href="@routes.Application.flows">Flows</a></li>
+		<li class="@if( active == 2 ) {selected} else {not-selected}"><a href="@routes.Application.preferences">Preferences</a></li>
+		<li class="@if( active == 3 ) {selected} else {not-selected}"><a href="@routes.Application.help">Help</a></li>
+		<li class="@if( active == 4 ) {selected} else {not-selected}"><a href="@routes.Application.about">About</a></li>
+	</ul>
+</div>
+<!--END of menu-->

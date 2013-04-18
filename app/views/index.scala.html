@@ -1,0 +1,14 @@
+@(message: String)
+
+@main("Petals Simple Flow Viewer","",0) {
+    
+    <p>
+    	A light web application to visualize Petals flows.<br />
+    	These flows must have been generated and logged by a set of Petals nodes.
+    </p>
+    <ul class="list welcome">
+    	<li>Update <a href="@routes.Application.preferences">your settings and preferences</a>.</li>
+    	<li>Visualize <a href="@routes.Application.flows">your flows</a>.</li>
+    	<li>Use <a href="@routes.Application.help">the help</a> if required.</li>
+    </ul>
+}

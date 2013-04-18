@@ -1,0 +1,324 @@
+/*
+ * Reset all the styles.
+ */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-family: Verdana, Arial, sans-serif;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td {
+	font-size: 12px;
+}
+
+
+/*
+ * The basics.
+ */
+a {
+	color: #783187;
+    text-decoration: none;
+}
+
+a:hover {
+	color: #A37DAE;
+	text-decoration:underline;
+}
+
+#content {
+	margin-left: 171px;
+	z-index: 1;
+}
+
+p {
+	line-height: 1.6em;
+	color: #848484;
+	font-size: 10pt;
+}
+
+h1 {
+	line-height: 1.6em;
+	color: #492562;
+	text-decoration: none;
+	font-size: 22pt;
+	padding: 5px 5px 0px 20px;
+	font-weight: bold;
+}
+
+h1 a {
+	color: #492562;
+}
+
+h2 {
+	line-height: 1.6em;
+	color: #454544;
+	text-decoration: none;
+	font-size: 18pt;
+}
+
+h3 {
+	line-height: 1.6em;
+	color: #454544;
+	text-decoration: none;
+	font-size: 16pt;
+}
+
+h4 {
+	line-height: 1.6em;
+	color: #454544;
+	text-decoration: none;
+	font-size: 14pt;
+}
+
+h5 {
+	line-height: 1.6em;
+	color: #454544;
+	text-decoration: none;
+	font-size: 12pt;
+}
+
+h6 {
+	line-height: 1.6em;
+	color: #454544;
+	text-decoration: none;
+	font-size: 10pt;
+}
+
+.spacer {
+	height: 1px;
+	clear: both;
+	border-bottom: 1px;
+	border-style: solid;
+	border-color: #d6d6d6;
+	margin: 0px 0px 20px;
+}
+
+.clear {
+	clear: both;
+}
+
+.page-description {
+	color: black;
+	margin-left: 25px;
+	margin-bottom: 10px;
+}
+
+#page-content {
+	margin-left: 40px;
+	font-size: 10pt;
+}
+
+.page-left {
+	margin-left: 30px;
+}
+
+
+/*
+ * The menu wrapper
+ */
+#menu-wrapper {
+	position:fixed;
+	height: 100%;
+	float: left;
+	background: none repeat scroll 0 0 #f8f8f8;
+    border-right: 1px solid #D8D8D8;
+}
+
+#logo {
+	font-family: Verdana, Arial, sans-serif;
+    padding: 0 10px 0;
+    width: 150px;
+}
+
+
+/*
+ * Preferences
+ */ 
+.prefs {
+	border: solid #646464 1px;
+	margin-bottom: 20px;
+	margin-left: 30px;
+	margin-right: 30px;
+	-webkit-border-radius: 10px;/* this is just for Safari */
+	-moz-border-radius: 10px;/* this works only in camino/firefox */
+	border-radius: 10px;
+}
+
+.prefs-content {
+	margin: 20px;
+}
+
+.prefs-messages {
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.prefs-field {
+	padding-right: 20px;
+}
+
+.prefs-title {
+	color: #646464;
+	padding: 5px 0;
+	margin-bottom: 10px;
+	background-color: #ddd;
+	font-size: 18px;
+	text-align: center;
+	-webkit-border-radius: 10px 10px 0 0;/* this is just for Safari */
+	-moz-border-radius: 10px 10px 0 0 ;/* this works only in camino/firefox */
+	border-radius: 10px 10px 0 0;
+	/* border-bottom: solid #646464 1px; */
+}
+
+.prefs-button-container {
+	text-align: center;
+	margin: 10px auto;
+}
+
+.prefs input[type=submit] {
+	width: 200px;
+}
+
+.prefs input[type=text] {
+	width: 80%;
+}
+
+dd {
+	display: inline;
+}
+
+dt {
+	display: inline;
+	padding-right: 25px;
+}
+
+select {
+	width: 200px;
+}
+
+
+/*
+ * Lists and so on...
+ */
+ul.list {
+	margin-bottom: 40px;
+}
+ 
+ul.list li, .s-table ul li, ul.s-properties li {
+	padding: 4px 0;
+}
+
+ul.welcome {
+	list-style-type: circle;
+	margin-left: 60px;
+	margin-top: 15px;
+}
+
+span.l-node {
+	padding: 0 15px;
+}
+
+span.l-component {
+	font-weight: bold;
+}
+
+span.l-node::before {
+	content: "@";
+}
+
+span.s-property {
+	font-weight: bold;
+}
+
+span.ko {
+	font-weight: bold;
+	color: red;
+}
+
+span.ok {
+	font-weight: bold;
+	color: green;
+}
+
+p.with-bottom {
+	margin-bottom: 20px;	
+}
+
+p.center {
+	text-align: center;
+	width: 90%;
+}
+
+.s-table {
+	border: solid #646464 1px;
+	border-collapse: collapse;
+	width: 90%;
+	-webkit-border-radius: 20px 0 20px 20px;
+	-moz-border-radius: 20px 0 20px 20px;
+	border-radius: 20px 0 20px 20px;
+	margin-bottom: 30px;
+}
+
+.s-table caption {
+	background-color: #E0E0E0;
+	padding: 8px;
+	text-align: center;
+	border-top: solid #646464 1px;
+	border-left: solid #646464 1px;
+	border-right: solid #646464 1px;
+	font-weight: bold;	
+}
+ 
+.s-table th {
+	background-color: #E0E0E0;
+	padding: 8px;
+	text-align: center;
+	border: solid black 1px;
+}
+
+.s-table td {
+	margin-right: 15px;
+	padding: 5px;
+	border: solid black 1px;
+}
+
+.s-key {
+	text-align: center;	
+}
+
+.s-properties {
+	float: left;
+	padding-top: 40px;
+	padding-left: 30px;
+}

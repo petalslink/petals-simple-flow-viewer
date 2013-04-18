@@ -1,0 +1,13 @@
+@(flowIds: Set[org.ow2.petals.log.api.model.FlowId])
+
+@main("Flow List","A list of Petals flows, ordered by date.",1) {
+
+    <ul class="list">
+        @for(flowId <- flowIds) {
+            <li>
+                <a href="@routes.Application.flow(flowId.getName())">@utils.FormattingUtils.formatDate(flowId.getLastModification()) &nbsp; - &nbsp; Flow @flowId.getName()</a>
+            </li>
+        }
+    </ul>
+    
+}

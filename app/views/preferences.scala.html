@@ -1,0 +1,44 @@
+@(locales: Map[String,String], prefsForm: Form[Preferences])
+
+@* NOTE this import is required to be able to use the @form tag below*@
+@import helper._
+
+@main("Preferences","The settings and the user preferences.",2) {
+    	
+    		<div class="prefs-messages">
+				@helper.form(action = routes.Application.updatePreferences()) {
+				
+				<!-- Logs Root Directory -->
+				<div class="page-left prefs">
+					<p class="prefs-title">Log Root Directory</p>
+					
+					<div class="prefs-content">
+						@inputText(
+							prefsForm("logRootDirectory"),
+							'_label -> "Location of the logs: " )
+					</div>
+					
+					<p class="prefs-button-container">
+						<input type="submit" value="Update">
+					</p>
+				</div>
+				
+				<!-- User Interface -->
+				<div class="page-left prefs">
+					<p class="prefs-title">User Preferences</p>
+					
+					<div class="prefs-content">
+						@select(
+							prefsForm("localeId"),
+							options = options( locales ),
+							'_label -> "Language: " )
+					</div>
+					
+					<p class="prefs-button-container">
+						<input type="submit" value="Save">
+					</p>
+				</div>
+				
+				}
+			</div>
+}

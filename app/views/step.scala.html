@@ -1,0 +1,49 @@
+@(step: org.ow2.petals.log.api.model.FlowStep, flowId: String)
+
+@main("Step « " + step.getId() + " »","A full overview of this flow step.",1) {
+    	@if( step == null ) {
+    		Oops! This step does not exist.
+    	} else {
+    		<p class="with-bottom">
+    		A flow step is at the cross-road between message exchanges.<br />
+    		You can see that as a check-point where messages have been flashed.
+    		</p>
+    		<p class="with-bottom">
+    		You might want to come back to the <a href="@routes.Application.flow( flowId )" title="This step is part of the flow @flowId">flow overview</a>.
+    		</p>
+    	
+    		<table class="s-table">
+    			<caption>Beginning</caption>
+    			<tr>
+    				<th>Key</th>
+    				<th>Value</th>
+    			</tr>
+		    	@for((key,value) <- step.getBeginProperties()) {
+		    		<tr><td class="s-key">@key</td><td>@value</td></tr>		
+		    	}
+		    </table>
+		    
+		    <ul class="s-properties">
+		    	<li><span class="s-property">Step ID:</span> @step.getId()</li>
+		    	<li><span class="s-property">Status:</span> <span class="@if( step.isFailure()) {ko">failed} else {ok">successful}</span></li>
+		    	<li><span class="s-property">Flow ID:</span> <a href="@routes.Application.flow( flowId )" title="This step is part of the flow @flowId">@flowId</a></li>
+		    	<li><span class="s-property">Log File:</span> @step.getLogFile().getAbsolutePath()</li>
+		    </ul>
+		    
+		    <p class="center"><img src="@routes.Assets.at("images/updateMe.png")" alt="An image to illustrate this step" width="400px" title="Add an image here" /></p>
+		    <p class="both"></p>
+		    
+		    <table class="s-table">
+    			<caption>End</caption>
+    			<tr>
+    				<th>Key</th>
+    				<th>Value</th>
+    			</tr>
+		    	@if( step.getOutcomeProperties() != null ) {
+	    			@for((key,value) <- step.getOutcomeProperties()) {
+		    		<tr><td class="s-key">@key</td><td>@value</td></tr>
+		    		}		
+		    	}
+		    </table>
+    	}
+}

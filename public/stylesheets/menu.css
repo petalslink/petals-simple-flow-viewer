@@ -1,0 +1,91 @@
+/*
+ * Menu items gathers all the menu items.
+ */
+#menu-items {
+	width: 145px; 
+	list-style: none; 
+	color: #033; 
+	margin: 0 auto 40px;
+}
+
+/*
+ * A menu item...
+ */
+#menu-items li {
+	margin: 10px 0;
+	font-weight: bold;
+	padding: 12px 10px 14px 20px;
+	text-align: center;
+	font-size: 11pt;
+	cursor: pointer;
+	-webkit-border-radius: 20px 0 20px 20px;
+	-moz-border-radius: 20px 0 20px 20px;
+	border-radius: 20px 0 20px 20px;
+	behavior: url(/PIE.htc);
+}
+
+/*
+ * ... can be selected...
+ */
+.not-selected {
+	color: #646464;
+	background: #E0E0E0;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#E0E0E0), to(#b9b9b9));
+	background: -webkit-linear-gradient(#E0E0E0, #b9b9b9);
+	background: -moz-linear-gradient(#E0E0E0, #b9b9b9);
+	background: -ms-linear-gradient(#E0E0E0, #b9b9b9);
+	background: -o-linear-gradient(#E0E0E0, #b9b9b9);
+	background: linear-gradient(#E0E0E0, #b9b9b9);
+	-pie-background: linear-gradient(#E0E0E0, #b9b9b9);
+}
+
+/*
+ * ... or not selected.
+ */
+.selected {
+	background: #67307B;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#67307B), to(#552467));
+	background: -webkit-linear-gradient(#67307B, #552467);
+	background: -moz-linear-gradient(#67307B, #552467);
+	background: -ms-linear-gradient(#67307B, #552467);
+	background: -o-linear-gradient(#67307B, #552467);
+	background: linear-gradient(#67307B, #552467);
+	-pie-background: linear-gradient(#67307B, #552467);
+	color: #fff;
+}
+
+/*
+ * What do do when a menu is hovered?
+ */
+#menu-items li:hover {
+	color: #fff;
+	background: #E46425;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#E46425), to(#c15520));
+	background: -webkit-linear-gradient(#E46425, #c15520);
+	background: -moz-linear-gradient(#E46425, #c15520);
+	background: -ms-linear-gradient(#E46425, #c15520);
+	background: -o-linear-gradient(#E46425, #c15520);
+	background: linear-gradient(#E46425, #c15520);
+	-pie-background: linear-gradient(#E46425, #c15520);
+}
+
+/*
+ * Styles for links inside the menu.
+ */
+#menu-items li a {
+	color: inherit;
+}
+
+#menu-items li a:hover {
+	text-decoration: none;
+}
+
+/******************************************
+
+-moz-linear-gradient(#E0E0E0, #b9b9b9) repeat scroll 0 0 transparent    gris
+
+-moz-linear-gradient(#67307B, #552467) repeat scroll 0 0 transparent    violet
+
+-moz-linear-gradient(#e46425, #c15520) repeat scroll 0 0 transparent    orange
+
+*******************************************/

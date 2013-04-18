@@ -1,0 +1,31 @@
+@(title: String, desc: String, active: Int)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/menu.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+    </head>
+    <body>
+        
+        <div id="menu">
+			@menu.render(active)
+		</div>
+
+		<div id="page">
+			<div id="content">
+				<h1>@title</h1>
+				<p class="page-description">@desc</p>
+				<div class="spacer"></div>
+		
+				<div id="page-content">
+					@content
+				</div>
+			</div>
+		</div>
+    </body>
+</html>
