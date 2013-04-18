@@ -34,55 +34,58 @@ import play.mvc.Result;
 import utils.MiscUtils;
 import views.html.*;
 
+/**
+ * @author Vincent Zurczak - Linagora
+ */
 public class Application extends Controller {
 
 	static Form<Preferences> prefsForm = Form.form( Preferences.class );
 
 
-    public static Result index() {
-        return ok(index.render("Your new application is ready."));
-    }
+	public static Result index() {
+		return ok(index.render("Your new application is ready."));
+	}
 
 
-    public static Result about() {
+	public static Result about() {
 		return ok( about.render());
 	}
 
 
-    public static Result help() {
+	public static Result help() {
 		return ok( help.render());
 	}
 
 
-    public static Result preferences() {
+	public static Result preferences() {
 
-    	Map<String,String> locales = new LinkedHashMap<String,String> ();
-    	locales.put( "en_US", "English" );
-    	locales.put( "fr_FR", "Français" );
+		Map<String,String> locales = new LinkedHashMap<String,String> ();
+		locales.put( "en_US", "English" );
+		locales.put( "fr_FR", "Français" );
 
-    	prefsForm = prefsForm.fill( MiscUtils.loadPreferences());
-    	for( Map.Entry<String,String> entry : prefsForm.data().entrySet())
-    		System.out.println( entry.getKey() +" - " + entry.getValue());
+		prefsForm = prefsForm.fill( MiscUtils.loadPreferences());
+		for( Map.Entry<String,String> entry : prefsForm.data().entrySet())
+			System.out.println( entry.getKey() +" - " + entry.getValue());
 
-		return ok( preferences.render( locales, prefsForm ));
+				return ok( preferences.render( locales, prefsForm ));
 	}
 
 
-    public static Result updatePreferences() {
+	public static Result updatePreferences() {
 
-    	final Form<Preferences> filledForm = prefsForm.bindFromRequest();
-    	Preferences newPrefs = filledForm.get();
-    	MiscUtils.savePreferences( newPrefs );
+		final Form<Preferences> filledForm = prefsForm.bindFromRequest();
+		Preferences newPrefs = filledForm.get();
+		MiscUtils.savePreferences( newPrefs );
 
-    	return redirect( routes.Application.preferences());
-    }
+		return redirect( routes.Application.preferences());
+	}
 
 
-    public static Result flows() throws Exception {
+	public static Result flows() throws Exception {
 
-    	String dir = MiscUtils.loadPreferences().logRootDirectory;
-    	FlowBuilder flowBuilder = new FlowBuilder();
-    	flowBuilder.setLogDirectories( dir );
+		String dir = MiscUtils.loadPreferences().logRootDirectory;
+		FlowBuilder flowBuilder = new FlowBuilder();
+		flowBuilder.setLogDirectories( dir );
 
 		return ok( flows.render( flowBuilder.findFlowIds()));
 	}
@@ -92,7 +95,7 @@ public class Application extends Controller {
 
 		String dir = MiscUtils.loadPreferences().logRootDirectory;
 		FlowBuilder flowBuilder = new FlowBuilder();
-    	flowBuilder.setLogDirectories( dir );
+		flowBuilder.setLogDirectories( dir );
 
 		Flow flowObject = flowBuilder.parseFlow( flowId );
 		return ok( flow.render( flowObject ));
@@ -103,7 +106,7 @@ public class Application extends Controller {
 
 		String dir = MiscUtils.loadPreferences().logRootDirectory;
 		FlowBuilder flowBuilder = new FlowBuilder();
-    	flowBuilder.setLogDirectories( dir );
+		flowBuilder.setLogDirectories( dir );
 
 		Flow flowObject = flowBuilder.parseFlow( flowId );
 		FlowStep stepObject = flowObject.getRoot().findDescendant( stepId );
