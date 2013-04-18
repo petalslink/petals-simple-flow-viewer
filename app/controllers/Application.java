@@ -64,10 +64,7 @@ public class Application extends Controller {
 		locales.put( "fr_FR", "Français" );
 
 		prefsForm = prefsForm.fill( MiscUtils.loadPreferences());
-		for( Map.Entry<String,String> entry : prefsForm.data().entrySet())
-			System.out.println( entry.getKey() +" - " + entry.getValue());
-
-				return ok( preferences.render( locales, prefsForm ));
+		return ok( preferences.render( locales, prefsForm ));
 	}
 
 
