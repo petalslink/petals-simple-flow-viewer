@@ -253,6 +253,10 @@ span.l-component {
 	font-weight: bold;
 }
 
+span.l-etc {
+	padding-right: 10px;
+}
+
 span.l-node::before {
 	content: "@";
 }
@@ -278,6 +282,24 @@ p.with-bottom {
 p.center {
 	text-align: center;
 	width: 90%;
+}
+
+span.label {
+	padding: 0 5px 1px;
+	font-weight: bold;
+	vertical-align: baseline;
+	color: #fff;
+	-webkit-border-radius: 3px;/* this is just for Safari */
+	-moz-border-radius: 3px;/* this works only in camino/firefox */
+	border-radius: 3px;
+}
+
+span.label-success {
+	background-color: #468847;
+}
+
+span.label-failure {
+	background-color: #b94a48;
 }
 
 .s-table {

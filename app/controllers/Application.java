@@ -24,6 +24,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.ow2.petals.log.api.FlowBuilder;
+import org.ow2.petals.log.api.PetalsLogUtils;
 import org.ow2.petals.log.api.model.Flow;
 import org.ow2.petals.log.api.model.FlowStep;
 
@@ -106,11 +107,7 @@ public class Application extends Controller {
 		flowBuilder.setLogDirectories( dir );
 
 		Flow flowObject = flowBuilder.parseFlow( flowId );
-		FlowStep stepObject;
-		if( stepId.equals( flowObject.getRoot().getId()))
-			stepObject = flowObject.getRoot();
-		else
-			stepObject = flowObject.getRoot().findDescendant( stepId );
+		FlowStep stepObject = PetalsLogUtils.findFlowStep( flowObject, stepId );
 
 		return ok( step.render( stepObject, flowId ));
 	}

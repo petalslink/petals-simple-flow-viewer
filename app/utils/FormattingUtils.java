@@ -88,7 +88,7 @@ public class FormattingUtils {
 		sb.append( "<span class=\"l-component\">" );
 		sb.append( shortenComponentLoggerName( start ));
 		sb.append( "</span> " );
-		sb.append( " &#8594; ..." );
+		sb.append( "<span class=\"l-etc\">&#8594; ...</span>" );
 
 		return sb.toString();
 	}

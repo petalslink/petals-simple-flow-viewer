@@ -16,10 +16,11 @@
    		</p>
     	
    		<ul class="list">
-   		@for((key,value) <- utils.MiscUtils.linearizeFlowTree( flow.getRoot())) {
+   		@for((key,value) <- org.ow2.petals.log.api.PetalsLogUtils.linearizeFlowTree( flow.getRoot())) {
    			<li style="margin-left: @utils.FormattingUtils.formatIndentationStyle( value );">
    				@if( value > 0 ) { |....... } 
    				<a href="@routes.Application.step( flow.getFlowId(), key.getId())">@Html( utils.FormattingUtils.formatFlowStepForListing( key ))</a>
+   				<span class="label label-@if( key.isFailure()) {failure">Failure} else {success">Success}</span>
    			</li>
    		}
    		</ul>

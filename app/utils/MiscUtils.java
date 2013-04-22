@@ -22,10 +22,6 @@ package utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import org.ow2.petals.log.api.model.FlowStep;
 
 import models.Preferences;
 
@@ -97,58 +93,5 @@ public class MiscUtils {
 		}
 
 		return result;
-	}
-
-
-	/**
-	 * Linearize a flow step tree.
-	 * <p>
-	 * A flow is simply a tree, with a root.<br />
-	 * This root is a flow step. A flow step has children.
-	 * It generally has a parent, except the root.So, a flow is simply a
-	 * tree of flow steps.
-	 * </p>
-	 * <p>
-	 * This function builds a list of flow steps from such a tree.<br />
-	 * The tree run starts with the root, then the first child, then the first grand-child...
-	 * Once all the children of a flow step have been processed, its siblings are treated.
-	 * </p>
-	 *
-	 * @param flowStep a flow step (not null)
-	 * @return a non-null map, where the key is the flow step ID and the value is the indentation level
-	 */
-	public static Map<FlowStep,Integer> linearizeFlowTree( FlowStep flowStep ) {
-
-		Map<FlowStep,Integer> flowStepIdToIndentation = new LinkedHashMap<FlowStep,Integer> ();
-		FlowStep current = flowStep;
-		int level = 0;
-		nextOne: while( current != null ) {
-
-			// Process the current step
-			// Precondition: "current" was not already added in the map.
-			flowStepIdToIndentation.put( current, level );
-
-			// Find the next one in the children
-			while( current != null ) {
-				// Precondition: the parent has already been processed
-				for( FlowStep child : current.getChildren()) {
-					if( ! flowStepIdToIndentation.containsKey( child )) {
-						current = child;
-						level ++;
-						continue nextOne;
-					}
-				}
-
-				// The root flow step does not have a parent
-				current = current.getParent();
-				level --;
-
-				// If we quit this loop with current = null, we will exit the other loop.
-			}
-
-			// Postcondition: "current" has not been added in the map.
-		}
-
-		return flowStepIdToIndentation;
 	}
 }
