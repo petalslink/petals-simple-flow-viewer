@@ -106,7 +106,11 @@ public class Application extends Controller {
 		flowBuilder.setLogDirectories( dir );
 
 		Flow flowObject = flowBuilder.parseFlow( flowId );
-		FlowStep stepObject = flowObject.getRoot().findDescendant( stepId );
+		FlowStep stepObject;
+		if( stepId.equals( flowObject.getRoot().getId()))
+			stepObject = flowObject.getRoot();
+		else
+			stepObject = flowObject.getRoot().findDescendant( stepId );
 
 		return ok( step.render( stepObject, flowId ));
 	}

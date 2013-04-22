@@ -1,25 +1,27 @@
 @(flow: org.ow2.petals.log.api.model.Flow)
 
-@main("Flow « " + flow.getFlowId() + " »","A full overview of this Petals flow.",1) {
-    	@if( flow == null || flow.getRoot() == null ) {
-    		Oops! This flow does not exist.
-    	} else {
-    		<p class="with-bottom">
-    		A Petals flow is a set of correlated Petals exchanges (or flow steps).<br />
-    		A Petals exchange is an exchange of Petals messages that obey a given order (MEP).
-    		</p>
-    		<p class="with-bottom">
-    		Here are the exchanges that were performed in this context and that were found in the logs.
-    		Remember that incomplete or missing logs may result in a completely different picture.
-    		</p>
+@if( flow == null || flow.getFlowId() == null ) {
+	@main("Unknown Flow","",1) {
+		Oops! This flow does not exist.
+	}
+} else {
+	@main("Flow « " + flow.getFlowId() + " »","A full overview of this Petals flow.",1) {
+   		<p class="with-bottom">
+	   		A Petals flow is a set of correlated Petals exchanges (or flow steps).<br />
+	   		A Petals exchange is an exchange of Petals messages that obey a given order (MEP).
+   		</p>
+   		<p class="with-bottom">
+	   		Here are the exchanges that were performed in this context and that were found in the logs.
+	   		Remember that incomplete or missing logs may result in a completely different picture.
+   		</p>
     	
-    		<ul class="list">
-    		@for((key,value) <- utils.MiscUtils.linearizeFlowTree( flow.getRoot())) {
-    			<li style="margin-left: @utils.FormattingUtils.formatIndentationStyle( value );">
-    				@if( value > 0 ) { |....... } 
-    				<a href="@routes.Application.step( flow.getFlowId(), key.getId())">@Html( utils.FormattingUtils.formatFlowStepForListing( key ))</a>
-    			</li>
-    		}
-    		</ul>
-    	}
+   		<ul class="list">
+   		@for((key,value) <- utils.MiscUtils.linearizeFlowTree( flow.getRoot())) {
+   			<li style="margin-left: @utils.FormattingUtils.formatIndentationStyle( value );">
+   				@if( value > 0 ) { |....... } 
+   				<a href="@routes.Application.step( flow.getFlowId(), key.getId())">@Html( utils.FormattingUtils.formatFlowStepForListing( key ))</a>
+   			</li>
+   		}
+   		</ul>
+	}
 }
