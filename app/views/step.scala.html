@@ -31,7 +31,7 @@
 		    
 		<ul class="s-properties">
 			<li><span class="s-property">Step ID:</span> @step.getId()</li>
-		    <li><span class="s-property">Status:</span> <span class="@if( step.isFailure()) {ko">failed} else {ok">successful}</span></li>
+		    <li><span class="s-property">Status:</span> <span class="label label-@if( step.isFailure()) {failure">failed} else {success">successful}</span></li>
 		   	<li><span class="s-property">Flow ID:</span> <a href="@routes.Application.flow( flowId )" title="This step is part of the flow @flowId">@flowId</a></li>
 		   	<li><span class="s-property">Log File:</span> @if( step.getLogFile() == null ) {
 		   		-

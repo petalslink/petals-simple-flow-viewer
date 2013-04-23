@@ -265,16 +265,6 @@ span.s-property {
 	font-weight: bold;
 }
 
-span.ko {
-	font-weight: bold;
-	color: red;
-}
-
-span.ok {
-	font-weight: bold;
-	color: green;
-}
-
 p.with-bottom {
 	margin-bottom: 20px;	
 }
