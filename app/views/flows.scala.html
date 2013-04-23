@@ -5,8 +5,8 @@
 	<p class="with-bottom">The following flows have been found.</p>
     <ul class="list">
         @for(flowId <- flowIds) {
-            <li>
-                <a href="@routes.Application.flow(flowId.getName())">@utils.FormattingUtils.formatDate(flowId.getLastModification()) &nbsp; - &nbsp; Flow @flowId.getName()</a>
+            <li class="flow-bullet">
+                <a href="@routes.Application.flow( flowId.getName())">@utils.FormattingUtils.formatDate(flowId.getLastModification()) &nbsp; - &nbsp; Flow @flowId.getName()</a>
             </li>
         }
     </ul>

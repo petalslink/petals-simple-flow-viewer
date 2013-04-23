@@ -239,6 +239,11 @@ ul.list li, .s-table ul li, ul.s-properties li {
 	padding: 4px 0;
 }
 
+ul.list li.flow-bullet {
+	background: url('/assets/images/flow_16x16.png') no-repeat bottom left;
+    padding: 4px 25px;
+}
+
 ul.welcome {
 	list-style-type: circle;
 	margin-left: 60px;
