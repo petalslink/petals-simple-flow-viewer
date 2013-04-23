@@ -20,6 +20,7 @@
 
 package controllers;
 
+import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -31,6 +32,7 @@ import org.ow2.petals.log.api.model.FlowStep;
 import models.Preferences;
 import play.data.Form;
 import play.mvc.Controller;
+import play.mvc.Http;
 import play.mvc.Result;
 import utils.MiscUtils;
 import views.html.*;
@@ -110,5 +112,29 @@ public class Application extends Controller {
 		FlowStep stepObject = PetalsLogUtils.findFlowStep( flowObject, stepId );
 
 		return ok( step.render( stepObject, flowId ));
+	}
+
+
+	public static Result download( String filePath ) {
+
+		File f = new File( filePath );
+		if( ! f.exists()) {
+			return notFound( dl_error.render( filePath ));
+
+		} else {
+			LinkedHashMap<String,String> props = new LinkedHashMap<String,String> ();
+			props.put( Http.HeaderNames.CACHE_CONTROL, "public" );
+			props.put( "Content-Description", "File Transfer" );
+			props.put( "Content-Disposition", "attachment; filename=" + f.getName());
+			props.put( Http.HeaderNames.CONTENT_TYPE, "text/plain" );
+			props.put( Http.HeaderNames.CONTENT_TRANSFER_ENCODING, "binary" );
+			props.put( Http.HeaderNames.CONTENT_LENGTH, String.valueOf( f.length()));
+
+			for( Map.Entry<String,String> entry : props.entrySet()) {
+				response().setHeader( entry.getKey(), entry.getValue());
+			}
+
+			return ok( f );
+		}
 	}
 }

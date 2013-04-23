@@ -10,6 +10,7 @@ GET	    /help						controllers.Application.help()
 GET		/flows						controllers.Application.flows()
 GET		/flow/:flow					controllers.Application.flow(flow: String)
 GET		/flow/:flow/step/:step		controllers.Application.step(flow: String, step: String)
+GET		/download/:file				controllers.Application.download(file: String)
 
 POST    /updatePreferences   		controllers.Application.updatePreferences
 
