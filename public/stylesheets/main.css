@@ -302,6 +302,11 @@ span.label-failure {
 	background-color: #b94a48;
 }
 
+span.label-warning {
+	background-color: #f89406;
+	cursor: default;
+}
+
 .s-table {
 	border: solid #646464 1px;
 	border-collapse: collapse;

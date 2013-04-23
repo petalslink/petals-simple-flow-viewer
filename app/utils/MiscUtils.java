@@ -24,6 +24,9 @@ import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import org.ow2.petals.log.api.PetalsLogUtils;
+import org.ow2.petals.log.api.model.FlowStep;
+
 import models.Preferences;
 
 /**
@@ -98,10 +101,27 @@ public class MiscUtils {
 
 
 	/**
+	 * Tests whether a filer path targets an existing file.
 	 * @param filePath a file path (can be null)
 	 * @return true if this path points to an existing file, false otherwise
 	 */
 	public static boolean exists( String filePath ) {
 		return filePath != null && filePath.length() > 0 && new File( filePath ).exists();
+	}
+
+
+	/**
+	 * Determines whether a flow contains errors.
+	 * @param flow a flow (not null)
+	 * @return true if this flow contains errors, false otherwise
+	 */
+	public static boolean containsFailures( FlowStep step ) {
+
+		for( FlowStep sf : PetalsLogUtils.linearizeFlowTree( step ).keySet()) {
+			if( sf.isFailure())
+				return true;
+		}
+
+		return false;
 	}
 }
