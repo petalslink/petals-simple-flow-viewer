@@ -26,12 +26,11 @@ application is one project among many others and maintaining the build coherence
 ### Requirements
 
 * You need the Petals sub-project **petals-log-parser-api**.
-** Hopefully, it should be available in the Central Maven repository. 
-** Otherwise, get it in the Petals SVN (under *tools-common*) and compile it with Maven (mvn clean install).
+Hopefully, it should be available in the Central Maven repository. 
+Otherwise, get it in the Petals SVN (under *tools-common*) and compile it with Maven (mvn clean install).
 
 * Clone this repository (as usual).
 * Install [Play! Framework](http://www.playframework.com) 2.x.
-** This project was developed with Play! 2.1.1.
 
 ### Commands
 
