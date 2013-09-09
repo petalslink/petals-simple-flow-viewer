@@ -19,14 +19,61 @@ This application was developed with Play 2.1.
 
 ## Developers
 
-* Get and compile the Petals sub-project **petals-log-parser-api** (under *tools-common* in the Petals SVN).
+Although Play! Framework uses SBT, this project has been configured to support
+a Maven build. This is because the Petals build entirely relies on Maven. This 
+application is one project among many others and maintaining the build coherence was important.
+
+### Requirements
+
+* You need the Petals sub-project **petals-log-parser-api**.
+** Hopefully, it should be available in the Central Maven repository. 
+** Otherwise, get it in the Petals SVN (under *tools-common*) and compile it with Maven (mvn clean install).
+
 * Clone this repository (as usual).
-* Install [Play Framework](http://www.playframework.com) 2.x.
-* Update *project/Build.scala* so that the path to your local Maven repository is valid.
-* Open a command line in the project's directory and launch *play*.
-* Read [here](http://www.playframework.com/documentation/2.1.0/ProductionDist) about exporting the application. No WAR export has been tested (although it is now possible with Play 2.1)
+* Install [Play! Framework](http://www.playframework.com) 2.x.
+** This project was developed with Play! 2.1.1.
+
+### Commands
+
+When using Maven with this project, do not forget to specify the Play! location.
+To define the PLAY2_HOME variable on Mac/Linux use:
+
+    export PLAY2_HOME=...
+    # or
+    mvn clean install -DPLAY2_HOME=...
+
+To build the application, simply run:
+
+    mvn clean install
+
+To compile and test only:
+
+    mvn test
+
+To package the application without running the tests:
+
+    mvn package -DskipTests
+
+To debug the application:
+
+    mvn play2:debug
+
+Finally, to run the application:
+
+    mvn play2:run
+
+### Play! Development
+
+* Make sure you have compiled the project at least once, to get the Maven dependencies.
+* Open a terminal and start Play! with the *play* command.
+* Use Play! commands (e.g. *run*) and develop as usual.
 
 ## TODO
+
+This application is a prototype to illustrate Petals features related to MONIT log.
+These logs can be used for many things, including business monitoring, but not only.
+
+The following things should be done or completed.
 
 * Internationalize the application.
 * Store the flow builder in the application context. Is this really useful?
