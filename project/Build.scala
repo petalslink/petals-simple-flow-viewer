@@ -8,7 +8,7 @@ object ApplicationBuild extends Build {
   val appVersion      = "1.0-SNAPSHOT"
 
   val appDependencies = Seq(
-    "org.ow2.petals" % "petals-log-api" % "1.0.0-SNAPSHOT",
+    "org.ow2.petals" % "petals-log-parser-api" % "1.0.0-SNAPSHOT",
     javaCore,
     javaJdbc,
     javaEbean

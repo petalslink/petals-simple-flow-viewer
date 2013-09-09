@@ -24,10 +24,10 @@ import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.ow2.petals.log.api.FlowBuilder;
-import org.ow2.petals.log.api.PetalsLogUtils;
-import org.ow2.petals.log.api.model.Flow;
-import org.ow2.petals.log.api.model.FlowStep;
+import org.ow2.petals.log.parser.api.FlowBuilder;
+import org.ow2.petals.log.parser.api.PetalsLogUtils;
+import org.ow2.petals.log.parser.api.model.Flow;
+import org.ow2.petals.log.parser.api.model.FlowStep;
 
 import models.Preferences;
 import play.data.Form;

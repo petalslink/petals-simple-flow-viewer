@@ -24,8 +24,8 @@ import java.io.File;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
-import org.ow2.petals.log.api.PetalsLogConstants;
-import org.ow2.petals.log.api.model.FlowStep;
+import org.ow2.petals.log.parser.api.PetalsLogConstants;
+import org.ow2.petals.log.parser.api.model.FlowStep;
 
 /**
  * Utilities related to formatting.

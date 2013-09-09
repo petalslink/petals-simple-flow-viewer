@@ -1,4 +1,4 @@
-@(flow: org.ow2.petals.log.api.model.Flow)
+@(flow: org.ow2.petals.log.parser.api.model.Flow)
 
 @if( flow == null || flow.getFlowId() == null ) {
 	@main("Unknown Flow","",1) {
@@ -16,7 +16,7 @@
    		</p>
     	
    		<ul class="list">
-   		@for((key,value) <- org.ow2.petals.log.api.PetalsLogUtils.linearizeFlowTree( flow.getRoot())) {
+   		@for((key,value) <- org.ow2.petals.log.parser.api.PetalsLogUtils.linearizeFlowTree( flow.getRoot())) {
    			<li style="margin-left: @utils.FormattingUtils.formatIndentationStyle( value );">
    				@if( value > 0 ) { |....... } 
    				<a href="@routes.Application.step( flow.getFlowId(), key.getId())">@Html( utils.FormattingUtils.formatFlowStepForListing( key ))</a>

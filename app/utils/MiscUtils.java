@@ -24,8 +24,8 @@ import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import org.ow2.petals.log.api.PetalsLogUtils;
-import org.ow2.petals.log.api.model.FlowStep;
+import org.ow2.petals.log.parser.api.PetalsLogUtils;
+import org.ow2.petals.log.parser.api.model.FlowStep;
 
 import models.Preferences;
 

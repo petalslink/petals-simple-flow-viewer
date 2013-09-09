@@ -19,8 +19,8 @@ This application was developed with Play 2.1.
 
 ## Developers
 
-* Download and compile with Maven [Petals Log API](https://svn.petalslink.org/svnroot/trunk/dev/contrib/petals-log-api/). Access is _anonymous/anonymous_
-* Clone the repository (as usual).
+* Get and compile the Petals sub-project **petals-log-parser-api** (under *tools-common* in the Petals SVN).
+* Clone this repository (as usual).
 * Install [Play Framework](http://www.playframework.com) 2.x.
 * Update *project/Build.scala* so that the path to your local Maven repository is valid.
 * Open a command line in the project's directory and launch *play*.
