@@ -102,7 +102,7 @@
 	</repositories>
 
 	<scm>
-		<connection>scm:git:https://github.com/vincent-zurczak/petals-simple-flow-viewer.git</connection>
+		<connection>scm:git:ssh://git@github.com/vincent-zurczak/petals-simple-flow-viewer.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
 	</scm>
 </project>

@@ -23,6 +23,8 @@ Although Play! Framework uses SBT, this project has been configured to support
 a Maven build. This is because the Petals build entirely relies on Maven. This 
 application is one project among many others and maintaining the build coherence was important.
 
+This project uses the [Play2 Maven plugin](http://nanoko-project.github.io/maven-play2-plugin/maven/release/).
+
 ### Requirements
 
 * You need the Petals sub-project **petals-log-parser-api**.
