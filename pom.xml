@@ -37,52 +37,53 @@
 
 	<properties>
 		<maven-dependency-plugin.failOnWarning>false</maven-dependency-plugin.failOnWarning>
+		<maven-enforcer-plugin.rules.dependency>false</maven-enforcer-plugin.rules.dependency>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<play.version>2.1.1</play.version>
 	</properties>
 
 	<dependencies>
-	
-	    <!-- Petals dependencies -->
+
+		<!-- Petals dependencies -->
 		<dependency>
 			<groupId>org.ow2.petals</groupId>
 			<artifactId>petals-log-parser-api</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 			<exclusions>
-			     <exclusion>
-			         <groupId>com.ebmwebsourcing.easycommons</groupId>
-			         <artifactId>easycommons-thread</artifactId>
-			     </exclusion>
-			     <exclusion>
-                     <groupId>com.ebmwebsourcing.easycommons</groupId>
-                     <artifactId>easycommons-uuid</artifactId>
-                 </exclusion>
-                 <exclusion>
-                     <groupId>com.ebmwebsourcing.easycommons</groupId>
-                     <artifactId>uuid</artifactId>
-                 </exclusion>
+				<exclusion>
+					<groupId>com.ebmwebsourcing.easycommons</groupId>
+					<artifactId>easycommons-thread</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.ebmwebsourcing.easycommons</groupId>
+					<artifactId>easycommons-uuid</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.ebmwebsourcing.easycommons</groupId>
+					<artifactId>uuid</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
-		
+
 		<!-- Play Framework Dependencies -->
-        <dependency>
-            <groupId>play</groupId>
-            <artifactId>play_2.9.3</artifactId>
-            <version>${play.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>play</groupId>
-            <artifactId>play-test_2.9.3</artifactId>
-            <version>${play.version}</version>
-            <scope>provided</scope>
-        </dependency>
+		<dependency>
+			<groupId>play</groupId>
+			<artifactId>play_2.9.3</artifactId>
+			<version>${play.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>play</groupId>
+			<artifactId>play-test_2.9.3</artifactId>
+			<version>${play.version}</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
-	    <sourceDirectory>app</sourceDirectory>
-        <testSourceDirectory>test</testSourceDirectory>
-	
+		<sourceDirectory>app</sourceDirectory>
+		<testSourceDirectory>test</testSourceDirectory>
+
 		<plugins>
 			<plugin>
 				<groupId>org.nanoko.playframework</groupId>
@@ -92,13 +93,13 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<repositories>
-        <repository>
-            <id>typesafe</id>
-            <url>http://repo.typesafe.com/typesafe/releases/</url>
-        </repository>
-    </repositories>
+		<repository>
+			<id>typesafe</id>
+			<url>http://repo.typesafe.com/typesafe/releases/</url>
+		</repository>
+	</repositories>
 
 	<scm>
 		<connection>scm:git:https://github.com/vincent-zurczak/petals-simple-flow-viewer.git</connection>

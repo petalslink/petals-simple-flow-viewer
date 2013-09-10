@@ -1,6 +1,5 @@
-/****************************************************************************
- *
- * Copyright (c) 2013, Linagora
+/**
+ * Copyright (c) 2013 Linagora
  *
  * This program/library is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -15,9 +14,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program/library; If not, see <http://www.gnu.org/licenses/>
  * for the GNU Lesser General Public License version 2.1.
- *
- *****************************************************************************/
-
+ */
 package models;
 
 import java.io.File;
