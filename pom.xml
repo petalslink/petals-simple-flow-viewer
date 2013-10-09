@@ -90,6 +90,9 @@
 				<artifactId>play2-maven-plugin</artifactId>
 				<version>1.2.3</version>
 				<extensions>true</extensions>
+				<configuration>
+               <lib>target/lib</lib>
+            </configuration>
 			</plugin>
 		</plugins>
 	</build>

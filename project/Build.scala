@@ -4,13 +4,21 @@ import play.Project._
 
 object ApplicationBuild extends Build {
 
-  val appName         = "petals-simple-flow-viewer"
-  val appVersion      = "1.0-SNAPSHOT"
-  val appDependencies = Seq(
-    javaCore,
-    javaJdbc,
-    javaEbean
-  )
+   def fromEnv(name: String) = System.getenv(name) match {
+      case null => None
+      case value => Some(value)
+   }
+
+   val appName = fromEnv("project.artifactId").getOrElse("my-app")
+   val appVersion = fromEnv("project.version").getOrElse("1.0-SNAPSHOT")
+
+   val appDependencies = Seq(
+      javaCore,
+      javaJdbc,
+      javaEbean
+   )
   
-  val main = play.Project(appName, appVersion, appDependencies)
+   val main = play.Project(appName, appVersion, appDependencies).settings(
+      unmanagedBase <<= baseDirectory { base => base / "target/lib" }
+   )
 }
