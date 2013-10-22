@@ -18,12 +18,15 @@
 package controllers;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.ow2.petals.log.parser.api.FlowBuilder;
 import org.ow2.petals.log.parser.api.PetalsLogUtils;
 import org.ow2.petals.log.parser.api.model.Flow;
+import org.ow2.petals.log.parser.api.model.FlowId;
 import org.ow2.petals.log.parser.api.model.FlowStep;
 
 import models.Preferences;
@@ -84,7 +87,11 @@ public class Application extends Controller {
 		FlowBuilder flowBuilder = new FlowBuilder();
 		flowBuilder.setLogDirectories( dir );
 
-		return ok( flows.render( flowBuilder.findFlowIds()));
+		// Convert the sorted set as a list
+		// Otherwise, ordering is not preserved.
+		// See http://play.lighthouseapp.com/projects/82401/tickets/177-java-sortedsets-loose-sorting-in-scala-templates
+		List<FlowId> list = new ArrayList<FlowId>( flowBuilder.findFlowIds());
+		return ok( flows.render( list ));
 	}
 
 
