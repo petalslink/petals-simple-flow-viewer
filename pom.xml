@@ -38,7 +38,8 @@
 	<properties>
 		<maven-dependency-plugin.failOnWarning>false</maven-dependency-plugin.failOnWarning>
 		<maven-enforcer-plugin.rules.dependency>false</maven-enforcer-plugin.rules.dependency>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven-enforcer-plugin.rules.upperBound>false</maven-enforcer-plugin.rules.upperBound>
+		<maven-enforcer-plugin.rules.bannedDependencies>false</maven-enforcer-plugin.rules.bannedDependencies>
 		<play.version>2.1.1</play.version>
 	</properties>
 
@@ -49,20 +50,6 @@
 			<groupId>org.ow2.petals</groupId>
 			<artifactId>petals-log-parser-api</artifactId>
 			<version>1.0.1-SNAPSHOT</version>
-			<exclusions>
-				<exclusion>
-					<groupId>com.ebmwebsourcing.easycommons</groupId>
-					<artifactId>easycommons-thread</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.ebmwebsourcing.easycommons</groupId>
-					<artifactId>easycommons-uuid</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.ebmwebsourcing.easycommons</groupId>
-					<artifactId>uuid</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<!-- Play Framework Dependencies -->
