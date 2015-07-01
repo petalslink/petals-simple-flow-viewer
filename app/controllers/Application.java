@@ -23,6 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.ow2.petals.log.parser.api.exception.FlowInstanceLogFileMissingException;
 import org.ow2.petals.log.parser.api.FlowBuilder;
 import org.ow2.petals.log.parser.api.PetalsLogUtils;
 import org.ow2.petals.log.parser.api.model.Flow;
@@ -101,8 +102,12 @@ public class Application extends Controller {
 		FlowBuilder flowBuilder = new FlowBuilder();
 		flowBuilder.setLogDirectories( dir );
 
-		Flow flowObject = flowBuilder.parseFlow( flowId );
-		return ok( flow.render( flowObject ));
+		try {
+		    Flow flowObject = flowBuilder.parseFlow( flowId );
+		    return ok( flow.render( flowObject ));
+        } catch (final FlowInstanceLogFileMissingException e) {
+            return internalServerError(e.getMessage());
+        }
 	}
 
 
@@ -112,10 +117,14 @@ public class Application extends Controller {
 		FlowBuilder flowBuilder = new FlowBuilder();
 		flowBuilder.setLogDirectories( dir );
 
-		Flow flowObject = flowBuilder.parseFlow( flowId );
-		FlowStep stepObject = PetalsLogUtils.findFlowStep( flowObject, stepId );
-
-		return ok( step.render( stepObject, flowId ));
+		try {
+    		Flow flowObject = flowBuilder.parseFlow( flowId );
+    		FlowStep stepObject = PetalsLogUtils.findFlowStep( flowObject, stepId );
+    
+    		return ok( step.render( stepObject, flowId ));
+        } catch (final FlowInstanceLogFileMissingException e) {
+            return internalServerError(e.getMessage());
+        }
 	}
 
 
